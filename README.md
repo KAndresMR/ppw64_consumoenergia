@@ -1,4 +1,3 @@
-Claro, voy a desglosar el flujo de trabajo y cómo debería funcionar cada clase y método en tu aplicación. Aquí está una visión general del flujo de trabajo para la aplicación que hemos configurado:
 
 ### **Flujo de Trabajo General**
 
