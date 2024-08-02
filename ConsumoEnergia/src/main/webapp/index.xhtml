@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<head>
+    <title>Consulta de Consumo y Deudas</title>
+</head>
+<body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="cedula" value="Número de Cédula:" />
+            <h:inputText id="cedula" value="#{consultaBean.cedula}" />
+
+            <h:commandButton value="Consultar" action="#{consultaBean.consultar}" />
+        </h:panelGrid>
+
+        <h:panelGroup rendered="#{consultaBean.usuario != null}">
+            <h:outputText value="Nombre: #{consultaBean.usuario.nombre}" />
+            <br />
+            <h:outputText value="Apellido: #{consultaBean.usuario.apellido}" />
+            <br />
+            <h:outputText value="Consumo Total de Energía: #{consultaBean.usuario.consumoEnergia}" />
+            <br />
+            <h:outputText value="Deuda Total: #{consultaBean.usuario.deudaPendiente}" />
+            <br /><br />
+
+            <h:dataTable value="#{consultaBean.consumoDeudas}" var="deuda" border="1">
+                <h:column>
+                    <f:facet name="header">Consumo (kWh)</f:facet>
+                    <h:outputText value="#{deuda.consumo}" />
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Deuda ($)</f:facet>
+                    <h:outputText value="#{deuda.deuda}" />
+                </h:column>
+            </h:dataTable>
+        </h:panelGroup>
+    </h:form>
+</body>
+</html>
